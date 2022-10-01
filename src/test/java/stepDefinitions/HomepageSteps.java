@@ -1,15 +1,22 @@
 package stepDefinitions;
 
 import com.qa.pages.GoogleHomepage;
+import com.qa.pages.JPMorganHomePage;
 import com.qa.pages.SearchResultPage;
 import com.qa.util.TestBase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+
+import static com.qa.util.TestBase.driver;
 
 public class HomepageSteps {
-    private GoogleHomepage ghp = new GoogleHomepage(TestBase.driver);
+    private GoogleHomepage ghp = new GoogleHomepage(driver);
     private SearchResultPage srp = new SearchResultPage();
+    private JPMorganHomePage jhp = new JPMorganHomePage();
+
     @Given("I have a search field on Google home page")
     public void i_have_a_search_field_on_google_home_page() {
         if(ghp.getSearchKey().isDisplayed()) {
@@ -27,9 +34,7 @@ public class HomepageSteps {
     }
     @Then("{string} should be displayed")
     public void should_be_displayed(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       Assert.assertTrue(jhp.logoDisplayed());
     }
-
 }
 
