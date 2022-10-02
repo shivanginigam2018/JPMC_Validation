@@ -2,6 +2,7 @@ package com.qa.pages;
 
 import com.qa.util.TestBase;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,13 +23,18 @@ public class JPMorganHomePage extends TestBase {
     }
 
     public boolean logoDisplayed() {
-        Boolean flag = (Boolean) ((JavascriptExecutor)driver)
-                .executeScript("return arguments[0].complete "
-                        + "&& typeof arguments[0].naturalWidth != \"undefined\" "
-                        + "&& arguments[0].naturalWidth > 0", logo);
-
+        Boolean flag;
+        try {
+            flag = (Boolean) ((JavascriptExecutor) driver)
+                    .executeScript("return arguments[0].complete "
+                            + "&& typeof arguments[0].naturalWidth != \"undefined\" "
+                            + "&& arguments[0].naturalWidth > 0", logo);
+        }
+        catch(NoSuchElementException e) {
+            flag = false;
+        }
         System.out.println("flag "+flag);
-        return flag;
+       return flag;
     }
 
 }

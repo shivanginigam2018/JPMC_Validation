@@ -4,11 +4,13 @@ import com.qa.pages.GoogleHomepage;
 import com.qa.pages.JPMorganHomePage;
 import com.qa.pages.SearchResultPage;
 import com.qa.util.TestBase;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 
 import static com.qa.util.TestBase.driver;
 
@@ -23,8 +25,8 @@ public class HomepageSteps {
             System.out.println("Search field is displayed");
         }
     }
-    @When("I search for keyword {string}")
-    public void i_search_for_keyword(String keyword) {
+    @When("I search for {string}")
+    public void i_search_for(String keyword) {
        ghp.getSearchKey().sendKeys(keyword);
        ghp.getSearchBtn().click();
     }
@@ -32,9 +34,40 @@ public class HomepageSteps {
     public void i_select_the_first_matched_item() {
         srp.getFirstItem().click();
     }
-    @Then("{string} should be displayed")
-    public void should_be_displayed(String string) {
+
+    @Then("J P Morgan logo should be displayed")
+    public void should_be_displayed() {
        Assert.assertTrue(jhp.logoDisplayed());
+    }
+
+    @Then("multiple matching results should be displayed")
+    public void multipleMatchingResultsShouldBeDisplayed() {
+        System.out.println(srp.getListOfItems()>1);
+    }
+
+    @Then("I can search for {string} using key press")
+    public void iCanSearchForUsingKeyPress(String keyword) {
+        ghp.getSearchKey().sendKeys(keyword+ Keys.ENTER);
+    }
+
+    @Then("search field should be enabled")
+    public void searchFieldShouldBeEnabled() {
+        Assert.assertTrue(ghp.getSearchKey().isEnabled());
+    }
+
+    @Then("J. P. Morgan logo should be displayed")
+    public void jPMorganLogoShouldBeDisplayed() {
+        Assert.assertTrue(jhp.logoDisplayed());
+    }
+
+    @Then("J P Morgan logo should not be displayed")
+    public void jPMorganLogoShouldNotBeDisplayed() {
+        Assert.assertFalse(jhp.logoDisplayed());
+    }
+
+    @And("I select any random matched item")
+    public void iSelectAndyRandomMatchedItem() {
+        srp.searchRandomItem().click();
     }
 }
 

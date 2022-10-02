@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/LogoValidation.feature",
         glue = {"stepDefinitions","AppHooks"},
-        plugin = {"pretty"}
+        plugin = {"pretty"},
+        tags = "@negativeTest-2"
         )
 public class Testrunner {
 
