@@ -3,7 +3,6 @@ package com.qa.pages;
 import com.qa.util.TestBase;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -36,5 +35,4 @@ public class JPMorganHomePage extends TestBase {
         System.out.println("flag "+flag);
        return flag;
     }
-
 }

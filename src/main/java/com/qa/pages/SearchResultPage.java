@@ -14,9 +14,6 @@ public class SearchResultPage extends TestBase {
     @FindBy(xpath = "//*[@id='rso']//div//h3")
     WebElement firstItem;
 
-    @FindBy(xpath = "//*[@id='rso']/div/div[i]")
-    WebElement randomItem;
-
     public SearchResultPage() {
         PageFactory.initElements(driver, this);
     }
@@ -29,11 +26,11 @@ public class SearchResultPage extends TestBase {
         return listOfItems.size();
     }
 
-    public void searchFirstItem() {
-        firstItem.click();
-    }
-
     public WebElement searchRandomItem() {
         int i = (int) Math.random();
-        return listOfItems.get(i); }
+        while (i == 1) {
+            i = (int) Math.random();
+        }
+        return listOfItems.get(i);
+    }
 }

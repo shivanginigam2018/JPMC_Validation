@@ -3,13 +3,11 @@ package stepDefinitions;
 import com.qa.pages.GoogleHomepage;
 import com.qa.pages.JPMorganHomePage;
 import com.qa.pages.SearchResultPage;
-import com.qa.util.TestBase;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
 import static com.qa.util.TestBase.driver;
