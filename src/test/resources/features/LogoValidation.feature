@@ -1,12 +1,19 @@
 @functionalTest
 Feature: JP Morgan logo validation
 
-  @End2End
+  @end2End
   Scenario: Validate JP Morgan Logo End2End
     Given I have a search field on Google home page
     When I search for "J. P. Morgan"
     And I select the first matched item
     Then J. P. Morgan logo should be displayed
+
+  @caseInsensitive
+  Scenario: Validate case insensitivity
+    Given I have a search field on Google home page
+    When I search for "jp morgan"
+    And I select the first matched item
+    Then J P Morgan logo should be displayed
 
   @multipleResults
   Scenario: Validate JP Morgan multiple results
@@ -24,17 +31,10 @@ Feature: JP Morgan logo validation
     Given I have a search field on Google home page
     Then I can search for "J. P. Morgan" using key press
 
-  @caseInsensitive
-  Scenario: Validate case insensitivity
-    Given I have a search field on Google home page
-    When I search for "jp morgan"
-    And I select the first matched item
-    Then J P Morgan logo should be displayed
-
   @negativeTest-1
   Scenario: Search with some random string
     Given I have a search field on Google home page
-    When I search for "xyaabc"
+    When I search for "xyzabc"
     And I select the first matched item
     Then J P Morgan logo should not be displayed
 

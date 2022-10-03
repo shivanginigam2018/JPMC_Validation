@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/LogoValidation.feature",
         glue = {"stepDefinitions","AppHooks"},
         plugin = {"pretty"},
-        tags = "@negativeTest-2"
+        tags = "@end2End"
         )
 public class Testrunner {
 

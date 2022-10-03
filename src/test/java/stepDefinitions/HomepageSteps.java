@@ -21,7 +21,7 @@ public class HomepageSteps {
 
     @Given("I have a search field on Google home page")
     public void i_have_a_search_field_on_google_home_page() {
-        if(ghp.getSearchKey().isDisplayed()) {
+        if(ghp.getHomePageTitle().equalsIgnoreCase("Google") && ghp.getSearchKey().isDisplayed()) {
             System.out.println("Search field is displayed");
         }
     }
