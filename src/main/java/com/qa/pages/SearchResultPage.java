@@ -33,4 +33,7 @@ public class SearchResultPage extends TestBase {
         }
         return listOfItems.get(i);
     }
+    public String getTitle() {
+        return driver.getTitle();
+    }
 }

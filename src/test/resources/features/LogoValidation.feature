@@ -29,7 +29,8 @@ Feature: JP Morgan logo validation
   @keyCheck
   Scenario: Search using key press
     Given I have a search field on Google home page
-    Then I can search for "J. P. Morgan" using key press
+    And I search for "J. P. Morgan" using key press
+    Then Search result page is displayed
 
   @negativeTest-1
   Scenario: Search with some random string

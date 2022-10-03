@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
         glue = {"stepDefinitions","AppHooks"},
         plugin = {"pretty","html:target/cucumber/report.html",
                   "json:target/cucumber/report.json"},
-        tags = "@fieldEnabled"
+        tags = "@functionalTest",
+        publish = true
         )
 public class Testrunner {
 

@@ -26,7 +26,6 @@ public class TestBase {
     }
 
     public WebDriver init_driver(String browserName) {
-        System.out.println("Browser is: "+browserName);
         if (browserName.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/config/chromedriver");
             driver = new ChromeDriver();

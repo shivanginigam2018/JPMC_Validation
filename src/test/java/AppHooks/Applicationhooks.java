@@ -1,18 +1,21 @@
 package AppHooks;
 
 import com.qa.util.TestBase;
+import com.qa.util.Utility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 public class Applicationhooks {
 
-    private WebDriver driver;
     Properties prop;
     TestBase testbase = new TestBase();
+    Utility util = new Utility();
 
     @Before(order = 0)
     public void getProperty() {
@@ -34,10 +37,13 @@ public class Applicationhooks {
     }
 
     @After(order = 1)
-    public void tearDown(Scenario sc) {
-        if(sc.isFailed())
+    public void tearDown(Scenario sc) throws IOException {
+        if (sc.isFailed()) {
+            String screnarioName = prop.getProperty("screenShotPath");
+            String timeStamp = new SimpleDateFormat("yyyyMMddHHmm'.png'").format(new Date());
+            screnarioName = screnarioName + timeStamp;
             System.out.println("Scenario Failed..screenshot attached");
+            util.takeScreenshot(screnarioName);
+        }
     }
-
-
 }

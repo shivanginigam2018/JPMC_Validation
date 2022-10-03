@@ -12,11 +12,6 @@ public class JPMorganHomePage extends TestBase {
    @FindBy(xpath = "//img[@class = 'first-logo']")
    WebElement logo;
 
-    public WebElement getLogo() {
-        System.out.println("logi is"+logo);
-        return logo;
-    }
-
     public JPMorganHomePage() {
         PageFactory.initElements(driver, this);
     }
@@ -32,7 +27,6 @@ public class JPMorganHomePage extends TestBase {
         catch(NoSuchElementException e) {
             flag = false;
         }
-        System.out.println("flag "+flag);
        return flag;
     }
 }

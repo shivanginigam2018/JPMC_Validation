@@ -40,10 +40,10 @@ public class HomepageSteps {
 
     @Then("multiple matching results should be displayed")
     public void multipleMatchingResultsShouldBeDisplayed() {
-        System.out.println(srp.getListOfItems()>1);
+        Assert.assertTrue(srp.getListOfItems()>1);
     }
 
-    @Then("I can search for {string} using key press")
+    @When("I search for {string} using key press")
     public void iCanSearchForUsingKeyPress(String keyword) {
         ghp.getSearchKey().sendKeys(keyword+ Keys.ENTER);
     }
@@ -66,6 +66,11 @@ public class HomepageSteps {
     @And("I select any random matched item")
     public void iSelectAndyRandomMatchedItem() {
         srp.searchRandomItem().click();
+    }
+
+    @Then("Search result page is displayed")
+    public void searchResultPageIsDisplayed() {
+        Assert.assertTrue(srp.getTitle().contains("Google Search"));
     }
 }
 
