@@ -12,7 +12,7 @@
 ##Steps:
 - Execute the project by navigating to JPMC_Validation/src/test/java/runner/Testrunner.java
   * Default tag : @functionalTest executes all scenarios
-  * execution can be done by proving specific scenario tags
+  * execution can be done by providing specific scenario tags
 - Configuration related data is loaded from config.properties file
 - Feature file is located at src/test/resources/features/LogoValidation.feature, and it contains 7 scenarios
 - StepDefs are located at src/test/java/stepDefinitions/HomepageSteps.java
